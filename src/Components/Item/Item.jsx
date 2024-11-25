@@ -8,10 +8,10 @@ const Item = (props) => {
             <p>{props.name}</p>
             <div className="item-prices">
                 <div className="item-price-new">
-                    {props.new_price}.000 VNĐ
+                    {props.new_price*1000} VNĐ
                 </div>
                 <div className="item-price-old">
-                    ${props.old_price}.000 VNĐ
+                    ${props.old_price*1000} VNĐ
                 </div>
             </div>
         </div>
