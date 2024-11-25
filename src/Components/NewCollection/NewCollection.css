@@ -1,0 +1,31 @@
+.new-collection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: auto; 
+    /*Lưu ý quan trọng: phần này chiều cao phải là auto vì 
+    nếu đặt cố định thì lưới có thể sẽ bị vượt ra và chèn vào nội dung khác*/
+    margin-bottom: 20px;
+}
+
+.new-collection h1 {
+    color: #171717;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.new-collection hr {
+    width: 500px;
+    height: 6px;
+    border-radius: 10px;
+    background-color: #252525;
+}
+
+.collection {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-top: 50px;
+    gap: 30px;
+}
+
