@@ -1,5 +1,7 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { useEffect } from "react";
+import all_product from "../Components/Assets/all_product";
+
 
 const ShopContext = createContext(null);
 const getDefaultCart = () => {
@@ -11,27 +13,26 @@ const getDefaultCart = () => {
 }
 const ShopContextProvider = (props) =>{
     const [cartItems, setCartItems] = useState(getDefaultCart());
-    const [all_product, setAllProduct] = useState([]);
+    // const [all_product, setAllProduct] = useState([]);
 
+    // useEffect(()=>{
+    //     fetch('http://localhost:4000/allproduct')
+    //     .then((res)=>res.json())
+    //     .then((data)=>setAllProduct(data))
 
-    useEffect(()=>{
-        fetch('http://localhost:4000/allproduct')
-        .then((res)=>res.json())
-        .then((data)=>setAllProduct(data))
-
-        if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/getcart',{
-                method:"POST",
-                headers:{
-                    Accept:'application/form-data',
-                    'auth-token':`${localStorage.getItem('auth-token')}`,
-                    'Content-type':'application/json'
-                },
-                body:"",
-            }).then((res)=>res.json())
-            .then((data)=>setCartItems(data))
-        }
-    },[])
+    //     if(localStorage.getItem('auth-token')){
+    //         fetch('http://localhost:4000/getcart',{
+    //             method:"POST",
+    //             headers:{
+    //                 Accept:'application/form-data',
+    //                 'auth-token':`${localStorage.getItem('auth-token')}`,
+    //                 'Content-type':'application/json'
+    //             },
+    //             body:"",
+    //         }).then((res)=>res.json())
+    //         .then((data)=>setCartItems(data))
+    //     }
+    // },[])
     const addToCart = (itemId) =>{
         setCartItems((prev) => ({...prev,[itemId]:prev[itemId]+1}))
         if(localStorage.getItem('auth-token')){
